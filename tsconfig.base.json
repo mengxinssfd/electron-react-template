@@ -29,7 +29,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "target": "ESNext",
-    "module": "ESNext",
-    "jsx": "preserve"
+    "module": "ESNext"
   },
 }
