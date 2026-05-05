@@ -32,6 +32,12 @@
     "lint:check": "eslint . --quiet",
     "lint:fix": "eslint . --fix"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,html,md}": [
+      "eslint",
+      "git add"
+    ]
+  },
   "dependencies": {
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
@@ -46,6 +52,7 @@
     "eslint": "^10.3.0",
     "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
