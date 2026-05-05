@@ -1,0 +1,24 @@
+{
+  "name": "electron-react-template",
+  "version": "0.0.0",
+  "description": "electron react template",
+  "keywords": [
+    "electron",
+    "react"
+  ],
+  "homepage": "https://github.com/mengxinssfd/electron-react-template#readme",
+  "bugs": {
+    "url": "https://github.com/mengxinssfd/electron-react-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengxinssfd/electron-react-template.git"
+  },
+  "license": "MIT",
+  "author": "DYH",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
