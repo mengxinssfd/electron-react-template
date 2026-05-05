@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouteObject } from 'react-router-dom';
+import { createHashRouter, RouteObject } from 'react-router-dom';
 import { NotFountLayout } from '@/layouts/NotFound.layout';
 import { ErrorLayout } from '@/layouts/Error.layout';
 import { AppLayout } from '@/layouts/App.layout';
@@ -12,7 +12,7 @@ export const baseRouter: RouteObject[] = [
   // },
 ];
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     children: [
       {
