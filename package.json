@@ -17,8 +17,15 @@
   "license": "MIT",
   "author": "DYH",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "dist-electron/main/index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "npm run ts-check:* && vite build && electron-builder",
+    "build:only": "vite build && electron-builder",
+    "build:electron-only": "electron-builder",
+    "build:mac": "npm run ts-check:* && vite build && electron-builder --mac",
+    "build:win": "npm run ts-check:* && vite build && electron-builder --win",
+    "build:linux": "npm run ts-check:* && vite build && electron-builder --linux",
     "prepare": "husky",
     "ts-check:src": "tsc -p ./tsconfig.json --noEmit",
     "ts-check:node": "tsc -p ./tsconfig.node.json --noEmit",
@@ -27,11 +34,20 @@
   "dependencies": {
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
+    "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "electron": "^41.5.0",
+    "electron-builder": "^26.8.1",
+    "esbuild": "^0.28.0",
     "husky": "^9.1.7",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "typescript": "^6.0.3"
+    "react-router-dom": "^7.14.2",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10",
+    "vite-electron-plugin": "^0.8.3"
   }
 }
