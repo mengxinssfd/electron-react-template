@@ -3,5 +3,5 @@
   "compilerOptions": {
     "composite": true,
   },
-  "include": ["electron/**/**/*.ts", "types/*.ts", "vite.config.ts"]
+  "include": ["electron/**/**/*.ts", "types/*.ts", "vite.config.ts", "vite-env.d.ts"]
 }

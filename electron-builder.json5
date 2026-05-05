@@ -17,6 +17,7 @@
     target: [
       'dmg'
     ],
+    icon: "electron/resources/icon.icns",
   },
   win: {
     target: [
@@ -28,9 +29,10 @@
       },
     ],
     artifactName: '${productName}_${version}.${ext}',
+    icon: "electron/resources/icon.ico",
   },
   linux: {
-    icon: "electron/resources/icon.icns",
+    icon: "electron/resources",
     "target": [
       {
         "target": "deb",
@@ -39,7 +41,7 @@
         ]
       }
     ],
-    "category": "SmartAssembly",
+    "category": "Utility",
     artifactName: "${productName}-Linux-${version}.${ext}",
   },
   //  fileAssociations: [
