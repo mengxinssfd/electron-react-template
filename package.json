@@ -16,7 +16,6 @@
   },
   "license": "MIT",
   "author": "DYH",
-  "type": "commonjs",
   "main": "dist-electron/main/index.js",
   "scripts": {
     "dev": "vite",
@@ -29,11 +28,14 @@
     "prepare": "husky",
     "ts-check:src": "tsc -p ./tsconfig.json --noEmit",
     "ts-check:node": "tsc -p ./tsconfig.node.json --noEmit",
-    "ts-check:*": "pnpm ts-check:src & pnpm ts-check:node"
+    "ts-check:*": "pnpm ts-check:src & pnpm ts-check:node",
+    "lint:check": "eslint . --quiet",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -41,12 +43,16 @@
     "electron": "^41.5.0",
     "electron-builder": "^26.8.1",
     "esbuild": "^0.28.0",
+    "eslint": "^10.3.0",
+    "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
+    "prettier": "^3.8.3",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.2",
     "vite": "^8.0.10",
     "vite-electron-plugin": "^0.8.3"
   }

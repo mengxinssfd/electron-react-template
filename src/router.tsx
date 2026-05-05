@@ -1,8 +1,8 @@
-import {createBrowserRouter, RouteObject} from 'react-router-dom';
-import {NotFountLayout} from '@/layouts/NotFound.layout';
-import {ErrorLayout} from '@/layouts/Error.layout';
-import {AppLayout} from '@/layouts/App.layout';
-import {App} from './App';
+import { createBrowserRouter, RouteObject } from 'react-router-dom';
+import { NotFountLayout } from '@/layouts/NotFound.layout';
+import { ErrorLayout } from '@/layouts/Error.layout';
+import { AppLayout } from '@/layouts/App.layout';
+import { App } from './App';
 
 export const baseRouter: RouteObject[] = [
   // {
@@ -14,19 +14,19 @@ export const baseRouter: RouteObject[] = [
 
 export const router = createBrowserRouter([
   {
-	children: [
-	  {
-		element: <App/>,
-		path: '/',
-	  },
-	  ...baseRouter,
-	],
-	errorElement: <ErrorLayout/>,
-	element: <AppLayout/>,
-	path: '',
+    children: [
+      {
+        element: <App />,
+        path: '/',
+      },
+      ...baseRouter,
+    ],
+    errorElement: <ErrorLayout />,
+    element: <AppLayout />,
+    path: '',
   },
   {
-	element: <NotFountLayout/>,
-	path: '*',
+    element: <NotFountLayout />,
+    path: '*',
   },
 ]);
