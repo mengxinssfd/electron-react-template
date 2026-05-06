@@ -6,4 +6,5 @@ export const zhTranslation: TranslationKeys = {
   changeLanguage: '切换语言',
   english: '英文',
   chinese: '中文',
+  reset: '重置',
 };

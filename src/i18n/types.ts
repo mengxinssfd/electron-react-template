@@ -4,4 +4,5 @@ export interface TranslationKeys {
   changeLanguage: string;
   english: string;
   chinese: string;
+  reset: string;
 }

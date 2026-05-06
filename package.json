@@ -42,23 +42,24 @@
     ]
   },
   "dependencies": {
+    "i18next": "^26.0.8",
+    "i18next-browser-languagedetector": "^8.2.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-router-dom": "^7.14.2",
-    "i18next": "^26.0.8",
     "react-i18next": "^17.0.6",
-    "i18next-browser-languagedetector": "^8.2.1"
+    "react-router-dom": "^7.14.2",
+    "zustand": "^5.0.13"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.2.4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/jest-dom": "^6.9.1",
     "electron": "^41.5.0",
     "electron-builder": "^26.8.1",
     "esbuild": "^0.28.0",

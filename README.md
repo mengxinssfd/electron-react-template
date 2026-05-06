@@ -7,6 +7,7 @@
 - ⚡ **快速开发**: 使用 Vite 实现极速热更新
 - 🎯 **TypeScript**: 完整的类型支持
 - 🎨 **Tailwind CSS 4.x**: 现代化 CSS 框架
+- 🗃️ **状态管理**: Zustand 轻量级状态管理
 - 🌐 **国际化**: i18next 支持多语言切换
 - 🔄 **IPC 通信**: 安全的主进程与渲染进程通信
 - 🧪 **测试**: Vitest + React Testing Library
@@ -22,6 +23,7 @@
 | Vite | ^8.0.10 |
 | Tailwind CSS | ^4.2.4 |
 | React Router DOM | ^7.14.2 |
+| Zustand | ^5.0.13 |
 | i18next | ^26.0.8 |
 | Vitest | ^4.1.5 |
 
@@ -72,6 +74,9 @@ electron-react-template/
 │   │   └── preload.ts          # 预加载脚本（IPC桥接）
 │   └── Signal.ts               # IPC 信号枚举
 ├── src/                        # React 渲染进程
+│   ├── store/                  # 状态管理 (Zustand)
+│   │   ├── useCounterStore.ts  # 计数器状态示例
+│   │   └── index.ts            # store 导出入口
 │   ├── i18n/                   # 国际化模块
 │   │   ├── locales/            # 语言包
 │   │   ├── init.ts             # i18n 初始化
@@ -137,6 +142,48 @@ export const router = createHashRouter([
     ],
   },
 ]);
+```
+
+### 状态管理 (Zustand)
+
+使用 Zustand 进行轻量级状态管理：
+
+```typescript
+// src/store/useCounterStore.ts
+import { create } from 'zustand';
+
+interface CounterState {
+  count: number;
+  increment: () => void;
+  decrement: () => void;
+  reset: () => void;
+}
+
+export const useCounterStore = create<CounterState>((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+  reset: () => set({ count: 0 }),
+}));
+```
+
+组件中使用：
+
+```typescript
+import { useCounterStore } from '@/store';
+
+function MyComponent() {
+  const { count, increment, decrement, reset } = useCounterStore();
+  
+  return (
+    <div>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
 ```
 
 ## 🔧 配置说明

@@ -6,4 +6,5 @@ export const enTranslation: TranslationKeys = {
   changeLanguage: 'Change Language',
   english: 'English',
   chinese: '中文',
+  reset: 'Reset',
 };
