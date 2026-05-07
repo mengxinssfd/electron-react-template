@@ -1,11 +1,29 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, IpcMain } from 'electron';
 import path from 'path';
 import Signal from '../Signal';
 
-let win: BrowserWindow | null = null;
+(function init() {
+  let win: BrowserWindow | null = null;
+  app.whenReady().then(_createWindow);
+  app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+      app.quit();
+    }
+  });
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      _createWindow();
+    }
+  });
 
-function createWindow() {
-  win = new BrowserWindow({
+  function _createWindow() {
+    win = createWindow();
+    addListeners(win.webContents.ipc);
+  }
+})();
+
+function createWindow(): BrowserWindow {
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     minWidth: 600,
@@ -18,27 +36,17 @@ function createWindow() {
     },
   });
   const url = process.env['VITE_DEV_SERVER_URL'];
-  win.webContents.ipc.on(Signal.LanguageChanged, (_e, ...args) => {
-    console.log('LanguageChanged ', args);
-  });
   if (url) {
     win.loadURL(url);
     win.webContents.openDevTools();
   } else {
     win.loadFile(path.join(__dirname, '../../dist/index.html'));
   }
+  return win;
 }
 
-app.whenReady().then(createWindow);
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
+function addListeners(ipc: IpcMain): void {
+  ipc.on(Signal.LanguageChanged, (_e, ...args) => {
+    console.log('LanguageChanged ', args);
+  });
+}
