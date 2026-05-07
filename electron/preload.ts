@@ -1,7 +1,18 @@
 import { contextBridge, ipcRenderer } from 'electron';
-import Signal from '../Signal';
+import Signal from './Signal';
 
+function fetch<T>(signal: Signal, ...args: unknown[]) {
+  return new Promise<T>((resolve) => {
+    const channel = `${signal}:${Math.random()}`;
+    ipcRenderer.once(channel, (_e, result) => {
+      resolve(result);
+    });
+    ipcRenderer.send(signal, channel, ...args);
+  });
+}
+// 对话
 const preload = {
+  fetch,
   send: (signal: Signal, ...args: unknown[]) => {
     ipcRenderer.send(signal, ...args);
   },

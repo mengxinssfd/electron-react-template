@@ -68,10 +68,9 @@ pnpm build
 
 ```
 electron-react-template/
-├── electron/                    # Electron 主进程
-│   ├── main/
-│   │   ├── index.ts            # 主窗口创建逻辑
-│   │   └── preload.ts          # 预加载脚本（IPC桥接）
+├── electron/                   # Electron 主进程
+│   │── index.ts                # 主窗口创建逻辑
+│   │── preload.ts              # 预加载脚本（IPC桥接）
 │   └── Signal.ts               # IPC 信号枚举
 ├── src/                        # React 渲染进程
 │   ├── store/                  # 状态管理 (Zustand)

@@ -1,6 +1,6 @@
 import { app, BrowserWindow, IpcMain } from 'electron';
 import path from 'path';
-import Signal from '../Signal';
+import Signal from './Signal';
 
 (function init() {
   let win: BrowserWindow | null = null;
@@ -40,7 +40,7 @@ function createWindow(): BrowserWindow {
     win.loadURL(url);
     win.webContents.openDevTools();
   } else {
-    win.loadFile(path.join(__dirname, '../../dist/index.html'));
+    win.loadFile('dist/index.html');
   }
   return win;
 }
